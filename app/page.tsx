@@ -19,7 +19,7 @@ const sections = [
 ];
 
 // Util for scrollspy / active section tracking
-function useScrollSpy(sectionIds: string[], offset: number = 100): string {
+function useScrollSpy(sectionIds: string[], offset: number = 100) {
   const [active, setActive] = React.useState(sectionIds[0]);
   React.useEffect(() => {
     function onScroll() {
@@ -34,7 +34,7 @@ function useScrollSpy(sectionIds: string[], offset: number = 100): string {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
-  }, [sectionIds]);
+  }, [sectionIds, offset]);
   return active;
 }
 
